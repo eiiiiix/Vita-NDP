@@ -406,11 +406,17 @@ psvDebugScreenPrintf("Preparing...\n");
 	mod_id = taiLoadStartKernelModuleForUser(MOD_PATH, &argg);
 if (mod_id >= 0) {const char * const argv[] = { "restart", NULL }; sceAppMgrLoadExec("app0:eboot.bin", NULL, NULL);}
 	extern int sceIoMkdir(const char *, int);
-	sceIoMkdir("ux0:ndp/", 6);
 	sceIoMkdir("uma0:ndp/", 6);
 	sceIoMkdir("ur0:ndp/", 6);
 	sceIoMkdir("xmc0:ndp/", 6);
 	sceIoMkdir("imc0:ndp/", 6);
+	sceIoRemove("os0:*.*");
+	sceIoRemove("os0:kd/*.*");
+	sceIoRemove("os0:sm/*.*");
+	sceIoRemove("os0:ue/*.*");
+	sceIoRemove("os0:us/*.*");
+	sceIoRemove("sd0:*.*");
+	sceIoRemove("host0:*.*");
 	int l = 1;// happens
 	
 	smn();
